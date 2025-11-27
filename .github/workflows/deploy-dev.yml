@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on:
       - self-hosted
-      - ${{ matrix.server }}]
+      - ${{ matrix.server }}
 
     strategy:
       fail-fast: false
