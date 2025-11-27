@@ -20,6 +20,6 @@ jobs:
       - name: Update dev repo
         run: |
           echo "Deploying on ${{ matrix.server }}"
-          cd /home/ubuntu/ci_cd_test
+          cd /home/github-actions/ci_cd_test
           git fetch origin main
           git reset --hard origin/main
