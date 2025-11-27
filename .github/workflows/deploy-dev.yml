@@ -1,0 +1,25 @@
+name: Deploy dev to all strategy servers
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on:
+      - self-hosted
+      - ${{ matrix.server }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        server: [srv3, srv4]
+
+    steps:
+      - name: Update dev repo
+        run: |
+          echo "Deploying on ${{ matrix.server }}"
+          cd /home/github-actions/ci_cd_test
+          git fetch origin main
+          git reset --hard origin/main
